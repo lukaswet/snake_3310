@@ -8,11 +8,20 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  //int upperBoundX, upperBoundY, lowerBoundX, loverBoundY;
-
+  late int upperBoundX, upperBoundY, lowerBoundX, lowerBoundY;
+  late double screenWidth, screenHeight;
+  int step=20;
 
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
+    lowerBoundY = step;
+    lowerBoundX = step;
+
+    upperBoundY = screenHeight.toInt()-step;
+    upperBoundX = screenWidth.toInt()-step;
+
     return Scaffold(
       body: Container(
         color: Colors.grey,
