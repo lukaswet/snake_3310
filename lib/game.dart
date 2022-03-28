@@ -21,6 +21,8 @@ class _GamePageState extends State<GamePage> {
     return output;
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -28,8 +30,8 @@ class _GamePageState extends State<GamePage> {
     lowerBoundY = step;
     lowerBoundX = step;
 
-    upperBoundY = screenHeight!.toInt()-step;
-    upperBoundX = screenWidth!.toInt()-step;
+    upperBoundY = getNearestTens(screenHeight!.toInt()-step);
+    upperBoundX = getNearestTens(screenWidth!.toInt()-step);
 
     return Scaffold(
       body: Container(
