@@ -8,9 +8,18 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  late int upperBoundX, upperBoundY, lowerBoundX, lowerBoundY;
-  late double screenWidth, screenHeight;
+  int? upperBoundX, upperBoundY, lowerBoundX, lowerBoundY;
+  double? screenWidth, screenHeight;
   int step=20;
+
+  int getNearestTens(int num){
+    int output;
+    output=(num ~/step)*step;
+    if(output==0){
+      output +=step;
+    }
+    return output;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +28,12 @@ class _GamePageState extends State<GamePage> {
     lowerBoundY = step;
     lowerBoundX = step;
 
-    upperBoundY = screenHeight.toInt()-step;
-    upperBoundX = screenWidth.toInt()-step;
+    upperBoundY = screenHeight!.toInt()-step;
+    upperBoundX = screenWidth!.toInt()-step;
 
     return Scaffold(
       body: Container(
-        color: Colors.grey,
+        color: Colors.grey[350],
         child: Stack(
           children: const [
 
